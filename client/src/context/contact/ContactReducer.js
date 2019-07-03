@@ -39,7 +39,10 @@ export default (state, action) => {
         ...state,
         current: null
       };
-
+    case FILTER_CONTACTS:
+      return {
+        ...state
+      };
     default:
       return state;
   }
