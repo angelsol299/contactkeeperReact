@@ -34,7 +34,7 @@ const ContactState = props => {
         name: 'Feliciano Feliz',
         email: 'feliciano@feliz.com',
         phone: '322-1234-777',
-        type: 'personal'
+        type: 'professional'
       }
     ]
   };
