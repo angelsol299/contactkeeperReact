@@ -36,15 +36,9 @@ const ContactForm = () => {
     if (current === null) {
       addContact(contact);
     } else {
-      updateContact();
+      updateContact(contact);
     }
-    contactContext.addContact(contact);
-    setContact({
-      name: '',
-      email: '',
-      phone: '',
-      type: 'personal'
-    });
+    clearAll();
   };
 
   const clearAll = () => {
