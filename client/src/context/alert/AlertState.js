@@ -23,11 +23,8 @@ const AlertState = props => {
   return (
     <AlertContext.Provider
       value={{
-        token: state.token,
-        isAuthenticated: state.isAuthenticated,
-        loading: state.loading,
-        user: state.user,
-        error: state.error
+        alerts: state,
+        setAlert
       }}
     >
       {props.children}
