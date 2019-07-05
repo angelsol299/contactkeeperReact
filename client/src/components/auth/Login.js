@@ -1,6 +1,15 @@
 import React, { useState, useContext, useEffect } from 'react';
 import AlertContext from '../../context/alert/alertContext';
 import AuthContext from '../../context/auth/authContext';
+import Button from '@material-ui/core/Button';
+
+const textStyle = {
+  borderRadius: '3px'
+};
+
+const labelColor = {
+  color: '#798180'
+};
 
 const Login = props => {
   const alertContext = useContext(AlertContext);
@@ -43,12 +52,15 @@ const Login = props => {
   return (
     <div className="form-container">
       <h1>
-        Account <span className="text-primary">Login</span>
+        Login to your <span style={{ color: '#289B87' }}>account</span>
       </h1>
       <form onSubmit={onSubmit}>
         <div className="form-group">
-          <label htmlFor="email">Email Address</label>
+          <label htmlFor="email">
+            <span style={labelColor}>Email Address</span>
+          </label>
           <input
+            style={textStyle}
             type="email"
             name="email"
             value={email}
@@ -57,8 +69,11 @@ const Login = props => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">
+            <span style={labelColor}>Password</span>
+          </label>
           <input
+            style={textStyle}
             type="password"
             name="password"
             value={password}
@@ -66,11 +81,16 @@ const Login = props => {
             required
           />
         </div>
-        <input
+        <br />
+        <Button
+          style={{ backgroundColor: '#1DD1B3', color: 'white' }}
+          variant="contained"
           type="submit"
           value="Login"
           className="btn btn-primary btn-block"
-        />
+        >
+          Login
+        </Button>
       </form>
     </div>
   );

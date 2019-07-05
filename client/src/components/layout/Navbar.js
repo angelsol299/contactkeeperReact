@@ -40,10 +40,11 @@ const Navbar = ({ title, icon }) => {
   );
 
   return (
-    <div className="navbar bg-primary">
-      <h1>
-        <i className={icon} /> {title}
-      </h1>
+    <div
+      className="navbar bg-primary"
+      style={{ backgroundColor: '#1DD1B3', borderBottomColor: '#1DD1B3' }}
+    >
+      <h1 style={{ marginTop: '5px' }}>{title}</h1>
       <ul>
         {/* <li>
           <Link to="/">Home</Link>
@@ -63,7 +64,7 @@ Navbar.propTypes = {
 };
 
 Navbar.defaultProps = {
-  title: 'Contact Keeper App',
+  title: 'Contact Manager',
   icon: 'fas fa-id-card-alt'
 };
 

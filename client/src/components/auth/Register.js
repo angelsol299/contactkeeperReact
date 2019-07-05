@@ -1,6 +1,15 @@
 import React, { useState, useContext, useEffect } from 'react';
 import AlertContext from '../../context/alert/alertContext';
 import AuthContext from '../../context/auth/authContext';
+import Button from '@material-ui/core/Button';
+
+const textStyle = {
+  borderRadius: '3px'
+};
+
+const labelColor = {
+  color: '#798180'
+};
 
 const Register = props => {
   const alertContext = useContext(AlertContext);
@@ -48,12 +57,16 @@ const Register = props => {
   return (
     <div className="form-container">
       <h1>
-        Account <span className="text-primary">Register</span>
+        Register a new <span style={{ color: '#289B87' }}>account</span>
       </h1>
       <form onSubmit={onSubmit}>
         <div className="form-group">
-          <label htmlFor="name">Name</label>
+          <br />
+          <label htmlFor="name">
+            <span style={labelColor}>Name</span>
+          </label>
           <input
+            style={textStyle}
             type="text"
             name="name"
             value={name}
@@ -62,8 +75,11 @@ const Register = props => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="email">Email Address</label>
+          <label htmlFor="email">
+            <span style={labelColor}>Email Address</span>
+          </label>
           <input
+            style={textStyle}
             type="email"
             name="email"
             value={email}
@@ -72,8 +88,11 @@ const Register = props => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">
+            <span style={labelColor}>Password</span>
+          </label>
           <input
+            style={textStyle}
             type="password"
             name="password"
             value={password}
@@ -83,8 +102,11 @@ const Register = props => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="password2">Confirm password</label>
+          <label htmlFor="password2">
+            <span style={labelColor}>Confirm password</span>
+          </label>
           <input
+            style={textStyle}
             type="password"
             name="password2"
             value={password2}
@@ -93,11 +115,16 @@ const Register = props => {
             minLength="6"
           />
         </div>
-        <input
+        <br />
+        <Button
+          style={{ backgroundColor: '#1DD1B3', color: 'white' }}
+          variant="contained"
           type="submit"
           value="Register"
           className="btn btn-primary btn-block"
-        />
+        >
+          Register
+        </Button>
       </form>
     </div>
   );
