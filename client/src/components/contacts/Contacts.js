@@ -4,6 +4,10 @@ import ContactItem from './ContactItem';
 import ContactContext from '../../context/contact/contactContext';
 import Spinner from '../layout/Spinner';
 
+const labelColor = {
+  color: '#798180'
+};
+
 const Contacts = () => {
   const contactContext = useContext(ContactContext);
 

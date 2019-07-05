@@ -1,6 +1,10 @@
 import React, { useContext, useRef, useEffect } from 'react';
 import ContactContext from '../../context/contact/contactContext';
 
+const textStyle = {
+  borderRadius: '3px'
+};
+
 const ContactFilter = () => {
   const contactContext = useContext(ContactContext);
   const text = useRef('');
@@ -24,6 +28,7 @@ const ContactFilter = () => {
   return (
     <form>
       <input
+        style={textStyle}
         ref={text}
         type="text"
         placeholder="Filter Contacts..."

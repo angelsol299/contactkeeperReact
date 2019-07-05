@@ -3,10 +3,8 @@ import ContactContext from '../../context/contact/contactContext';
 import { makeStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
+import Button from '@material-ui/core/Button';
 
 const textStyle = {
   borderRadius: '3px'
@@ -20,6 +18,9 @@ const useStyles = makeStyles(theme => ({
   },
   group: {
     margin: theme.spacing(1, 0)
+  },
+  labelColor: {
+    color: '#959494'
   }
 }));
 
@@ -69,7 +70,9 @@ const ContactForm = () => {
 
   return (
     <form onSubmit={onSubmit}>
-      <h2 className="text-primary">{current ? 'Edit' : 'Add'}</h2>
+      <h2 className={classes.labelColor}>
+        {current ? 'Edit the selected contact' : 'Add a contact'}
+      </h2>
       <input
         style={textStyle}
         type="text"
@@ -96,7 +99,10 @@ const ContactForm = () => {
         value={phone}
         onChange={onChange}
       />
-      <h5>Contact Type</h5>
+      <br />
+      <span style={{ color: 'dark', fontSize: '13px', fontWeight: 'bold' }}>
+        Contact type
+      </span>
       <RadioGroup aria-label="Gender" name="gender1" className={classes.group}>
         <FormControlLabel
           value="personal"
@@ -120,17 +126,28 @@ const ContactForm = () => {
 
       <div>
         <br />
-        <input
+        <Button
+          style={{ backgroundColor: '#1CB766', color: 'white' }}
+          variant="contained"
           type="submit"
-          value={current ? 'Update' : 'Add'}
+          value="Login"
           className="btn btn-primary btn-block"
-        />
+        >
+          {current ? 'Update' : 'Add'}
+        </Button>
+        <br />
+        <br />
       </div>
       {current && (
         <div>
-          <button className="btn btn-light btn-block" onClick={clearAll}>
+          <Button
+            style={{ backgroundColor: 'grey', color: 'white' }}
+            variant="contained"
+            onClick={clearAll}
+            className="btn btn-light btn-block"
+          >
             Clear
-          </button>
+          </Button>
         </div>
       )}
     </form>

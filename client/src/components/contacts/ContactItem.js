@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import ContactContext from '../../context/contact/contactContext';
+import Button from '@material-ui/core/Button';
 
 const ContactItem = ({ contact }) => {
   const contactContext = useContext(ContactContext);
@@ -15,11 +16,15 @@ const ContactItem = ({ contact }) => {
   };
 
   return (
-    <div className="card bg-light">
-      <h3 className="text-primary text-left">
+    <div className="card bg-light" style={{ borderRadius: '5px' }}>
+      <h3 className="text-left" style={{ color: 'darkGrey' }}>
         {name}{' '}
         <span
-          style={{ float: 'right' }}
+          style={
+            type === 'professional'
+              ? { float: 'right', backgroundColor: '#505B55' }
+              : { float: 'right', backgroundColor: '#B3C3BA' }
+          }
           className={
             'badge ' +
             (type === 'professional' ? 'badge-success' : 'badge-primary')
@@ -30,28 +35,46 @@ const ContactItem = ({ contact }) => {
       </h3>
       <ul className="list">
         {email && (
-          <li>
-            <i className="fas fa-envelope-open"> {email}</i>
+          <li
+            style={{
+              fontFamily: "'Roboto'",
+              fontSize: '15px'
+            }}
+          >
+            <i className="far fa-envelope" style={{ color: '#549373' }} />{' '}
+            {email}
           </li>
         )}
         {phone && (
-          <li>
-            <i className="fas fa-phone"> {phone}</i>
+          <li
+            style={{
+              fontFamily: "'Roboto'",
+              fontSize: '15px'
+            }}
+          >
+            <i className="fas fa-mobile-alt" style={{ color: '#549373' }} />{' '}
+            {phone}
           </li>
         )}
       </ul>
       <p>
-        <button
-          className="btn btn-dark btn-sm"
+        <Button
+          style={{ backgroundColor: 'black', color: 'white', fontSize: '7px' }}
+          variant="outlined"
           onClick={() => {
             setCurrent(contact);
           }}
         >
           Edit
-        </button>
-        <button className="btn btn-danger btn-sm" onClick={onDelete}>
+        </Button>
+        &nbsp;
+        <Button
+          style={{ backgroundColor: 'red', color: 'white', fontSize: '7px' }}
+          variant="outlined"
+          onClick={onDelete}
+        >
           Delete
-        </button>
+        </Button>
       </p>
     </div>
   );
