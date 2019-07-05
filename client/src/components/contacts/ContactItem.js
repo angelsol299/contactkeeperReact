@@ -16,14 +16,20 @@ const ContactItem = ({ contact }) => {
   };
 
   return (
-    <div className="card bg-light" style={{ borderRadius: '5px' }}>
+    <div
+      className="card"
+      style={{ borderRadius: '5px', border: '1.5px solid #B7BAB7' }}
+    >
       <h3 className="text-left" style={{ color: 'darkGrey' }}>
         {name}{' '}
         <span
           style={
-            type === 'professional'
-              ? { float: 'right', backgroundColor: '#505B55' }
-              : { float: 'right', backgroundColor: '#B3C3BA' }
+            (type === 'professional'
+              ? { float: 'right', backgroundColor: 'black' }
+              : { float: 'right' },
+            type === 'personal')
+              ? { float: 'right', backgroundColor: '#98b0c3 ' }
+              : { float: 'right' }
           }
           className={
             'badge ' +
@@ -59,7 +65,7 @@ const ContactItem = ({ contact }) => {
       </ul>
       <p>
         <Button
-          style={{ backgroundColor: 'black', color: 'white', fontSize: '7px' }}
+          style={{ color: 'black', fontSize: '7px' }}
           variant="outlined"
           onClick={() => {
             setCurrent(contact);
@@ -69,7 +75,8 @@ const ContactItem = ({ contact }) => {
         </Button>
         &nbsp;
         <Button
-          style={{ backgroundColor: 'red', color: 'white', fontSize: '7px' }}
+          style={{ fontSize: '7px' }}
+          color="secondary"
           variant="outlined"
           onClick={onDelete}
         >

@@ -122,6 +122,15 @@ const ContactForm = () => {
           type="radio"
           name="type"
         />
+        <FormControlLabel
+          value="family"
+          control={<Radio color="none" />}
+          label="Family"
+          checked={type === 'family'}
+          onChange={onChange}
+          type="radio"
+          name="type"
+        />
       </RadioGroup>
 
       <div>

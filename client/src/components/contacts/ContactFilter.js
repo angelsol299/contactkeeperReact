@@ -27,6 +27,7 @@ const ContactFilter = () => {
 
   return (
     <form>
+      <br />
       <input
         style={textStyle}
         ref={text}

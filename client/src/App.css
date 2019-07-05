@@ -2,11 +2,11 @@
 
 /* Global Styles */
 :root {
-  --primary-color: #003699;
+  --primary-color: #c3a3ae;
   --dark-color: #333333;
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
-  --success-color: #28a745;
+  --success-color: #505b55;
 }
 
 * {
@@ -235,6 +235,7 @@ img {
 .bg-primary,
 .badge-primary,
 .alert-primary {
+  background-color: 'red';
   background: var(--primary-color);
   color: #fff;
 }
@@ -267,6 +268,7 @@ img {
 .bg-success,
 .badge-success,
 .alert-success {
+  background-color: 'red';
   background: var(--success-color);
   color: #fff;
 }
