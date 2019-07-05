@@ -81,7 +81,7 @@ const ContactForm = () => {
         value={name}
         onChange={onChange}
       />
-      <br />
+
       <input
         style={textStyle}
         type="email"
@@ -90,7 +90,7 @@ const ContactForm = () => {
         value={email}
         onChange={onChange}
       />
-      <br />
+
       <input
         style={textStyle}
         type="text"
@@ -99,7 +99,7 @@ const ContactForm = () => {
         value={phone}
         onChange={onChange}
       />
-      <br />
+
       <span style={{ color: 'dark', fontSize: '13px', fontWeight: 'bold' }}>
         Contact type
       </span>

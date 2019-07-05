@@ -21,13 +21,15 @@ const Home = () => {
       <div>
         <ContactForm />
       </div>
-      {contacts && contacts.length !== 0 && (
-        <span style={{ textAlign: 'center', fontWeight: 'bold' }}>
-          You currently have {contacts && contacts.length} contact
-          {contacts && contacts.length > 1 && 's'}
-        </span>
-      )}
+
       <div>
+        {contacts && contacts.length !== 0 && (
+          <span style={{ textAlign: 'center', fontWeight: 'bold' }}>
+            You currently have {contacts && contacts.length} contact
+            {contacts && contacts.length > 1 && 's'}
+          </span>
+        )}
+
         <ContactFilter />
         <Contacts />
       </div>
