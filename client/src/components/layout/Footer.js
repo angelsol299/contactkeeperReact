@@ -16,46 +16,43 @@ const Navbar = ({ title, icon }) => {
     clearContacts();
   };
 
-  const authLinks = (
-    <Fragment>
-      <li>
-        {' '}
-        <span style={{ fontWeight: 'bold' }}>Welcome</span> {user && user.name}
-      </li>
-      <li>
-        <a onClick={onLogout} href="#!">
-          <i className="fas fa-sign-out-alt" />
-          <span className="hide-sm"> Logout</span>
-        </a>
-      </li>
-    </Fragment>
-  );
-
   const guestLinks = (
     <Fragment>
+      <li>All rights reserved</li>
       <li>
-        <Link to="/register">Register</Link>
-      </li>
-      <li>
-        <Link to="/login">Login</Link>
+        <Link to="/about" style={{ color: 'white' }}>
+          About
+        </Link>
+        <li>
+          <Link to="/" style={{ color: 'white' }}>
+            Home
+          </Link>
+        </li>
       </li>
     </Fragment>
   );
 
   return (
     <div
-      className="navbar bg-primary"
-      style={{ backgroundColor: '#1DD1B3', borderBottomColor: '#1DD1B3' }}
+      className="footer bg-primary"
+      style={{
+        backgroundColor: '#1DD1B3',
+        borderBottomColor: '#1DD1B3',
+        position: 'relative',
+        bottom: 0,
+        width: '100%',
+        height: '70px'
+      }}
     >
       <h1 style={{ marginTop: '5px' }}>{title}</h1>
-      <ul>
+      <ul style={{ textAlign: 'center' }}>
         {/* <li>
           <Link to="/">Home</Link>
         </li>
         <li>
           <Link to="/about">About</Link>
         </li> */}
-        {isAuthenticated ? authLinks : guestLinks}
+        {guestLinks}
       </ul>
     </div>
   );
@@ -64,11 +61,6 @@ const Navbar = ({ title, icon }) => {
 Navbar.propTypes = {
   title: PropTypes.string.isRequired,
   icon: PropTypes.string
-};
-
-Navbar.defaultProps = {
-  title: 'Contact Manager',
-  icon: 'fas fa-id-card-alt'
 };
 
 export default Navbar;

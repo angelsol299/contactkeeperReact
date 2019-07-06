@@ -15,12 +15,21 @@
   padding: 0;
 }
 
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   background-color: #fff;
   color: #333;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 a {
@@ -46,6 +55,8 @@ img {
   margin: auto;
   overflow: hidden;
   padding: 0 2rem;
+  min-height: 100%;
+  position: relative;
 }
 
 /* Text Styles*/
@@ -366,6 +377,16 @@ table th {
   border-bottom: solid 1px var(--primary-color);
   opacity: 0.9;
   margin-bottom: 1rem;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+  padding: 0.7rem 2rem;
+  width: 100%;
+  border-bottom: solid 1px var(--primary-color);
 }
 
 .navbar ul {

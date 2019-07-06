@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
 import Home from './components/pages/Home';
 import About from './components/pages/About';
 import Register from './components/auth/Register';
@@ -12,6 +13,7 @@ import ContactState from './context/contact/ContactState';
 import AuthState from './context/auth/AuthState';
 import AlertState from './context/alert/AlertState';
 import './App.css';
+import ScrollUpButton from 'react-scroll-up-button';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -34,6 +36,11 @@ const App = () => {
                   <Route exact path="/login" component={Login} />
                 </Switch>
               </div>
+              <ScrollUpButton
+                style={{
+                  backgroundColor: '#1DD1B3'
+                }}
+              />
             </Fragment>
           </Router>
         </AlertState>

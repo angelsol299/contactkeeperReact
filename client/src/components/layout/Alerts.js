@@ -6,8 +6,15 @@ const Alerts = () => {
   return (
     alertContext.alerts.length > 0 &&
     alertContext.alerts.map(alert => (
-      <div key={alert.id} className={`alert alert-${alert.type}`}>
-        <i className="fas fa-info-circle">{alert.msg}</i>
+      <div
+        key={alert.id}
+        style={{ borderRadius: '5px', border: '1px solid' }}
+        className={`alert alert-${alert.type}`}
+      >
+        <i className="fas fa-exclamation-triangle">
+          {' '}
+          <span style={{ fontFamily: 'Roboto' }}>{alert.msg}</span>
+        </i>
       </div>
     ))
   );

@@ -24,7 +24,14 @@ const Home = () => {
 
       <div>
         {contacts && contacts.length !== 0 && (
-          <span style={{ textAlign: 'center', fontWeight: 'bold' }}>
+          <span
+            style={{
+              float: 'center',
+              itemsAlign: 'center',
+              textAlign: 'center',
+              fontWeight: 'bold'
+            }}
+          >
             You currently have {contacts && contacts.length} contact
             {contacts && contacts.length > 1 && 's'}
           </span>
