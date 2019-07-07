@@ -48,15 +48,7 @@ const Navbar = ({ title, icon }) => {
       style={{ backgroundColor: '#1DD1B3', borderBottomColor: '#1DD1B3' }}
     >
       <h1 style={{ marginTop: '5px' }}>{title}</h1>
-      <ul>
-        {/* <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li> */}
-        {isAuthenticated ? authLinks : guestLinks}
-      </ul>
+      <ul>{isAuthenticated ? authLinks : guestLinks}</ul>
     </div>
   );
 };
