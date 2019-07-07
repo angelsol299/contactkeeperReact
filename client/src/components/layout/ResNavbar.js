@@ -58,6 +58,9 @@ const useStyles = makeStyles(theme => ({
       fontSize: '20px',
       fontWeight: 'bold'
     }
+  },
+  spanMarginLeft: {
+    marginLeft: '20px'
   }
 }));
 
@@ -94,26 +97,28 @@ const ResponsiveDrawer = props => {
         }}
       >
         {' '}
-        <span style={{ fontWeight: 'bold' }}>Welcome&nbsp; </span>{' '}
+        <span style={{ fontWeight: 'bold', marginLeft: '20px' }}>
+          Welcome&nbsp;{' '}
+        </span>{' '}
         {user && user.name}
       </ListItem>
-
       <Divider />
       <Link to="/">
         <ListItem button className={classes.drawerColorText}>
-          Home
+          <span className={classes.spanMarginLeft}>Home</span>
         </ListItem>
       </Link>
       <Link to="/about">
         <ListItem button className={classes.drawerColorText}>
-          About
+          <span className={classes.spanMarginLeft}>About</span>
         </ListItem>
       </Link>
       <Link to="/login">
         <ListItem button onClick={onLogout}>
           <a href="#!" className={classes.drawerColorText}>
-            Logout <i className="fas fa-sign-out-alt" />
-            <span className="hide-sm"> Logout</span>
+            <span className={classes.spanMarginLeft}>
+              Logout <i className="fas fa-sign-out-alt" />
+            </span>
           </a>
         </ListItem>
       </Link>
@@ -126,28 +131,30 @@ const ResponsiveDrawer = props => {
         button
         style={{
           color: 'black',
-          fontSize: '16px',
+          fontSize: '18px',
           marginTop: '-40px',
           marginBottom: '20px'
         }}
       >
         {' '}
-        <span style={{ fontWeight: 'bold' }}>Menu&nbsp; </span>{' '}
+        <span style={{ fontWeight: 'bold', marginLeft: '20px' }}>
+          Menu&nbsp;{' '}
+        </span>{' '}
       </ListItem>
       <Divider />
       <Link to="/register">
         <ListItem button className={classes.drawerColorText}>
-          Register
+          <span className={classes.spanMarginLeft}>Register</span>
         </ListItem>
       </Link>
       <Link to="/login">
         <ListItem button className={classes.drawerColorText}>
-          Login
+          <span className={classes.spanMarginLeft}>Login</span>
         </ListItem>
       </Link>
       <Link to="/about">
         <ListItem button className={classes.drawerColorText}>
-          About
+          <span className={classes.spanMarginLeft}>About</span>
         </ListItem>
       </Link>
     </Fragment>
@@ -155,7 +162,6 @@ const ResponsiveDrawer = props => {
   const drawer = (
     <div>
       <div className={classes.toolbar} />
-
       <List>{isAuthenticated ? authLinks : guestLinks}</List>
     </div>
   );
