@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment, useContext } from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -16,6 +16,9 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
+import AuthContext from '../../context/auth/authContext';
+import ContactContext from '../../context/contact/contactContext';
 
 const drawerWidth = 240;
 
@@ -61,18 +64,56 @@ const ResponsiveDrawer = props => {
     setMobileOpen(!mobileOpen);
   }
 
+  const authContext = useContext(AuthContext);
+  const contactContext = useContext(ContactContext);
+
+  const { isAuthenticated, logout, user } = authContext;
+  const { clearContacts } = contactContext;
+
+  const onLogout = () => {
+    logout();
+    clearContacts();
+  };
+
+  const authLinks = (
+    <Fragment>
+      <ListItem button>
+        {' '}
+        <span style={{ fontWeight: 'bold' }}>Welcome </span> {user && user.name}
+      </ListItem>
+      <Link to="/">
+        <ListItem button>Home</ListItem>
+      </Link>
+      <Link to="/about">
+        <ListItem button>About</ListItem>
+      </Link>
+      <ListItem button onClick={onLogout}>
+        <a href="#!">
+          Logout <i className="fas fa-sign-out-alt" />
+          <span className="hide-sm"> Logout</span>
+        </a>
+      </ListItem>
+    </Fragment>
+  );
+
+  const guestLinks = (
+    <Fragment>
+      <Link to="/register">
+        <ListItem button>Register</ListItem>
+      </Link>
+      <Link to="/login">
+        <ListItem button>Login</ListItem>
+      </Link>
+      <Link to="/about">
+        <ListItem button>About</ListItem>
+      </Link>
+    </Fragment>
+  );
   const drawer = (
     <div>
       <div className={classes.toolbar} />
       <Divider />
-      <List>
-        <ListItem button>
-          <ListItemText> Signout </ListItemText>
-        </ListItem>
-        <ListItem button>
-          <ListItemText> About </ListItemText>
-        </ListItem>
-      </List>
+      <List>{isAuthenticated ? authLinks : guestLinks}</List>
     </div>
   );
 
