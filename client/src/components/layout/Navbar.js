@@ -47,7 +47,7 @@ const Navbar = ({ title, icon }) => {
       className="navbar bg-primary"
       style={{ backgroundColor: '#1DD1B3', borderBottomColor: '#1DD1B3' }}
     >
-      <h1 style={{ marginTop: '5px' }}>{title}</h1>
+      <h1 style={{ marginTop: '5px' }}>contact manager</h1>
       <ul>{isAuthenticated ? authLinks : guestLinks}</ul>
     </div>
   );

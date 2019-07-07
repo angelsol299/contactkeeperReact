@@ -40,6 +40,8 @@ const useStyles = makeStyles(theme => ({
 
   menuButton: {
     float: 'right',
+    top: '10px',
+    right: '10px',
     [theme.breakpoints.up('sm')]: {
       display: 'none'
     }
@@ -61,6 +63,21 @@ const useStyles = makeStyles(theme => ({
   },
   spanMarginLeft: {
     marginLeft: '20px'
+  },
+  hidenNav: {
+    [theme.breakpoints.down('xs')]: {
+      display: 'none',
+      float: 'right',
+      position: 'relative',
+      textAling: 'right',
+      alignItems: 'right'
+    }
+  },
+  hiddenHamFlex: {
+    [theme.breakpoints.down('lg')]: {
+      float: 'left',
+      flex: 'auto'
+    }
   }
 }));
 
@@ -92,7 +109,6 @@ const ResponsiveDrawer = props => {
         style={{
           color: 'black',
           fontSize: '16px',
-          marginTop: '-40px',
           marginBottom: '20px'
         }}
       >
@@ -171,23 +187,57 @@ const ResponsiveDrawer = props => {
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
         <div
-          className="navbar bg-primary"
           style={{ backgroundColor: '#1DD1B3', borderBottomColor: '#1DD1B3' }}
         >
           {' '}
-          <ul
-            style={{
-              top: '20px',
-              display: 'flex',
-              flexDirection: 'row'
-            }}
-          >
-            <li style={{ marginTop: '14px', float: 'left', flex: 'auto' }}>
+          <ul>
+            <li
+              style={{
+                marginLeft: '20px',
+                margin: '15px 0px 15px 20px'
+              }}
+              className={classes.hiddenHamFlex}
+            >
               <h2>Contact Manager</h2>
+            </li>
+            <li className={classes.hidenNav}>
+              <Link
+                style={{
+                  color: 'white',
+                  marginRight: '40px',
+                  marginTop: '20px',
+                  float: 'right'
+                }}
+              >
+                Login
+              </Link>
+              <li className={classes.hidenNav}>
+                <Link
+                  style={{
+                    color: 'white',
+                    marginRight: '40px',
+                    marginTop: '20px',
+                    float: 'right'
+                  }}
+                >
+                  Register
+                </Link>
+                <li className={classes.hidenNav}>
+                  <Link
+                    style={{
+                      color: 'white',
+                      marginRight: '40px',
+                      marginTop: '20px',
+                      float: 'right'
+                    }}
+                  >
+                    About
+                  </Link>
+                </li>
+              </li>
             </li>
             <li>
               <IconButton
-                style={{ float: 'right', flex: 'auto', paddingTop: '22px' }}
                 color="inherit"
                 aria-label="Open drawer"
                 edge="start"
