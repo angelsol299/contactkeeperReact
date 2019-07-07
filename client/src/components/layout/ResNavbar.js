@@ -85,13 +85,19 @@ const ResponsiveDrawer = props => {
           style={{ backgroundColor: '#1DD1B3', borderBottomColor: '#1DD1B3' }}
         >
           {' '}
-          <ul style={{ display: 'flex', flexDirection: 'row' }}>
-            <li style={{ marginTop: '4px', float: 'left', flex: 'auto' }}>
+          <ul
+            style={{
+              top: '20px',
+              display: 'flex',
+              flexDirection: 'row'
+            }}
+          >
+            <li style={{ marginTop: '14px', float: 'left', flex: 'auto' }}>
               <h2>Contact Manager</h2>
             </li>
             <li>
               <IconButton
-                style={{ float: 'right', flex: 'auto' }}
+                style={{ float: 'right', flex: 'auto', paddingTop: '22px' }}
                 color="inherit"
                 aria-label="Open drawer"
                 edge="start"
