@@ -51,6 +51,13 @@ const useStyles = makeStyles(theme => ({
   content: {
     flexGrow: 1,
     padding: theme.spacing(3)
+  },
+  drawerColorText: {
+    color: '#117E77',
+    [theme.breakpoints.up('xs')]: {
+      fontSize: '20px',
+      fontWeight: 'bold'
+    }
   }
 }));
 
@@ -77,18 +84,32 @@ const ResponsiveDrawer = props => {
 
   const authLinks = (
     <Fragment>
-      <ListItem button>
+      <ListItem
+        button
+        style={{
+          color: 'black',
+          fontSize: '16px',
+          marginTop: '-40px',
+          marginBottom: '20px'
+        }}
+      >
         {' '}
-        <span style={{ fontWeight: 'bold' }}>Welcome </span> {user && user.name}
+        <span style={{ fontWeight: 'bold' }}>Welcome&nbsp; </span>{' '}
+        {user && user.name}
       </ListItem>
+      <Divider />
       <Link to="/">
-        <ListItem button>Home</ListItem>
+        <ListItem button className={classes.drawerColorText}>
+          Home
+        </ListItem>
       </Link>
       <Link to="/about">
-        <ListItem button>About</ListItem>
+        <ListItem button className={classes.drawerColorText}>
+          About
+        </ListItem>
       </Link>
       <ListItem button onClick={onLogout}>
-        <a href="#!">
+        <a href="#!" className={classes.drawerColorText}>
           Logout <i className="fas fa-sign-out-alt" />
           <span className="hide-sm"> Logout</span>
         </a>
@@ -98,21 +119,40 @@ const ResponsiveDrawer = props => {
 
   const guestLinks = (
     <Fragment>
+      <ListItem
+        button
+        style={{
+          color: 'black',
+          fontSize: '16px',
+          marginTop: '-40px',
+          marginBottom: '20px'
+        }}
+      >
+        {' '}
+        <span style={{ fontWeight: 'bold' }}>Menu&nbsp; </span>{' '}
+      </ListItem>
+      <Divider />
       <Link to="/register">
-        <ListItem button>Register</ListItem>
+        <ListItem button className={classes.drawerColorText}>
+          Register
+        </ListItem>
       </Link>
       <Link to="/login">
-        <ListItem button>Login</ListItem>
+        <ListItem button className={classes.drawerColorText}>
+          Login
+        </ListItem>
       </Link>
       <Link to="/about">
-        <ListItem button>About</ListItem>
+        <ListItem button className={classes.drawerColorText}>
+          About
+        </ListItem>
       </Link>
     </Fragment>
   );
   const drawer = (
     <div>
       <div className={classes.toolbar} />
-      <Divider />
+
       <List>{isAuthenticated ? authLinks : guestLinks}</List>
     </div>
   );
