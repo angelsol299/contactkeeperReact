@@ -77,7 +77,7 @@ const ResponsiveDrawer = props => {
   const { isAuthenticated, logout, user } = authContext;
   const { clearContacts } = contactContext;
 
-  const onLogout = () => {
+  const onLogout = props => {
     logout();
     clearContacts();
   };
@@ -97,6 +97,7 @@ const ResponsiveDrawer = props => {
         <span style={{ fontWeight: 'bold' }}>Welcome&nbsp; </span>{' '}
         {user && user.name}
       </ListItem>
+
       <Divider />
       <Link to="/">
         <ListItem button className={classes.drawerColorText}>
@@ -108,12 +109,14 @@ const ResponsiveDrawer = props => {
           About
         </ListItem>
       </Link>
-      <ListItem button onClick={onLogout}>
-        <a href="#!" className={classes.drawerColorText}>
-          Logout <i className="fas fa-sign-out-alt" />
-          <span className="hide-sm"> Logout</span>
-        </a>
-      </ListItem>
+      <Link to="/login">
+        <ListItem button onClick={onLogout}>
+          <a href="#!" className={classes.drawerColorText}>
+            Logout <i className="fas fa-sign-out-alt" />
+            <span className="hide-sm"> Logout</span>
+          </a>
+        </ListItem>
+      </Link>
     </Fragment>
   );
 
