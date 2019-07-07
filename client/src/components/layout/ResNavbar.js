@@ -40,7 +40,7 @@ const useStyles = makeStyles(theme => ({
 
   menuButton: {
     float: 'right',
-    top: '10px',
+    top: '8px',
     right: '10px',
     [theme.breakpoints.up('sm')]: {
       display: 'none'
@@ -78,6 +78,12 @@ const useStyles = makeStyles(theme => ({
       float: 'left',
       flex: 'auto'
     }
+  },
+  navbarLinks: {
+    color: 'white',
+    marginRight: '40px',
+    marginTop: '20px',
+    float: 'right'
   }
 }));
 
@@ -102,7 +108,7 @@ const ResponsiveDrawer = props => {
     clearContacts();
   };
 
-  const authLinks = (
+  const authLinksDraw = (
     <Fragment>
       <ListItem
         button
@@ -141,7 +147,7 @@ const ResponsiveDrawer = props => {
     </Fragment>
   );
 
-  const guestLinks = (
+  const guestLinksDraw = (
     <Fragment>
       <ListItem
         button
@@ -178,8 +184,104 @@ const ResponsiveDrawer = props => {
   const drawer = (
     <div>
       <div className={classes.toolbar} />
-      <List>{isAuthenticated ? authLinks : guestLinks}</List>
+      <List>{isAuthenticated ? authLinksDraw : guestLinksDraw}</List>
     </div>
+  );
+
+  const guestLinks = (
+    <Fragment>
+      <div style={{ paddingTop: '4px' }}>
+        <li className={classes.hidenNav}>
+          <Link
+            to="/login"
+            style={{
+              color: 'white',
+              marginRight: '40px',
+              marginTop: '20px',
+              float: 'right'
+            }}
+          >
+            Login
+          </Link>
+        </li>
+        <li className={classes.hidenNav}>
+          <Link
+            to="/register"
+            style={{
+              color: 'white',
+              marginRight: '40px',
+              marginTop: '20px',
+              float: 'right'
+            }}
+          >
+            Register
+          </Link>
+        </li>
+        <li className={classes.hidenNav}>
+          <Link
+            to="/about"
+            style={{
+              color: 'white',
+              marginRight: '40px',
+              marginTop: '20px',
+              float: 'right'
+            }}
+          >
+            About
+          </Link>
+        </li>
+      </div>
+    </Fragment>
+  );
+
+  const authLinks = (
+    <Fragment>
+      <div style={{ paddingTop: '4px' }}>
+        <li onClick={onLogout}>
+          <a href="#!" className={classes.hidenNav}>
+            <span
+              style={{
+                color: 'white',
+                marginRight: '40px',
+                marginTop: '20px',
+                float: 'right'
+              }}
+            >
+              Logout <i className="fas fa-sign-out-alt" />
+            </span>
+          </a>
+        </li>
+        <li>
+          <Link
+            className={classes.hidenNav}
+            to="/about"
+            style={{
+              color: 'white',
+              marginRight: '40px',
+              marginTop: '20px',
+              float: 'right'
+            }}
+          >
+            <span className={classes.spanMarginLeft}>About</span>
+          </Link>
+        </li>
+        <p
+          className={classes.hidenNav}
+          style={{
+            color: 'white',
+            marginRight: '40px',
+            marginTop: '20px',
+            float: 'right'
+          }}
+        >
+          {' '}
+          <span style={{ fontWeight: 'bold', marginLeft: '20px' }}>
+            Welcome&nbsp;{' '}
+          </span>{' '}
+          {user && user.name}
+        </p>
+      </div>
+    </Fragment>
   );
 
   return (
@@ -200,42 +302,7 @@ const ResponsiveDrawer = props => {
             >
               <h2>Contact Manager</h2>
             </li>
-            <li className={classes.hidenNav}>
-              <Link
-                style={{
-                  color: 'white',
-                  marginRight: '40px',
-                  marginTop: '20px',
-                  float: 'right'
-                }}
-              >
-                Login
-              </Link>
-              <li className={classes.hidenNav}>
-                <Link
-                  style={{
-                    color: 'white',
-                    marginRight: '40px',
-                    marginTop: '20px',
-                    float: 'right'
-                  }}
-                >
-                  Register
-                </Link>
-                <li className={classes.hidenNav}>
-                  <Link
-                    style={{
-                      color: 'white',
-                      marginRight: '40px',
-                      marginTop: '20px',
-                      float: 'right'
-                    }}
-                  >
-                    About
-                  </Link>
-                </li>
-              </li>
-            </li>
+            {isAuthenticated ? authLinks : guestLinks}
             <li>
               <IconButton
                 color="inherit"
